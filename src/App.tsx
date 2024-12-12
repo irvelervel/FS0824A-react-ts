@@ -6,6 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import FunctionalComponent from './components/FunctionalComponent'
 import ClassComponent from './components/ClassComponent'
 import FormComponent from './components/FormComponent'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import MyNavbar from './components/MyNavbar'
+import FoodBooks from './components/FoodBooks'
 
 interface MovieObject {
   Poster: string
@@ -24,7 +27,8 @@ function App() {
   }, [])
 
   return (
-    <>
+    <BrowserRouter>
+      <MyNavbar />
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -34,13 +38,27 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <FormComponent />
-      <ClassComponent mainTitle="Cattosello" />
-      <FunctionalComponent
-        imgSource="https://placecats.com/400/400"
-        title="Card con gatto!"
-      />
-      <FunctionalComponent imgSource="https://placedog.net/200" />
+      <Routes>
+        <Route
+          path="/"
+          element={<FunctionalComponent imgSource="https://placedog.net/200" />}
+        />
+        <Route
+          path="/cat-card"
+          element={
+            <FunctionalComponent
+              imgSource="https://placecats.com/400/400"
+              title="Card con gatto!"
+            />
+          }
+        />
+        <Route path="/form" element={<FormComponent />} />
+        <Route
+          path="/class"
+          element={<ClassComponent mainTitle="Cattosello" />}
+        />
+        <Route path="/food-books" element={<FoodBooks />} />
+      </Routes>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -57,7 +75,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </BrowserRouter>
   )
 }
 
