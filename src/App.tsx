@@ -5,6 +5,7 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import FunctionalComponent from './components/FunctionalComponent'
 import ClassComponent from './components/ClassComponent'
+import FormComponent from './components/FormComponent'
 
 interface MovieObject {
   Poster: string
@@ -33,6 +34,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <FormComponent />
       <ClassComponent mainTitle="Cattosello" />
       <FunctionalComponent
         imgSource="https://placecats.com/400/400"

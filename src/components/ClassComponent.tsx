@@ -36,7 +36,10 @@ class ClassComponent extends Component<
             <h2>{this.props.mainTitle}</h2>
             <Carousel>
               <Carousel.Item>
-                <img src="https://placecats.com/500/500" />
+                <img
+                  className="img-fluid"
+                  src="https://placecats.com/500/500"
+                />
                 <Carousel.Caption>
                   <h3>First slide label</h3>
                   <p>{this.state.counter + 100}</p>
@@ -50,7 +53,10 @@ class ClassComponent extends Component<
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
-                <img src="https://placecats.com/600/600" />
+                <img
+                  className="img-fluid"
+                  src="https://placecats.com/600/600"
+                />
                 <Carousel.Caption>
                   <h3>Second slide label</h3>
                   <p>
@@ -59,7 +65,10 @@ class ClassComponent extends Component<
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
-                <img src="https://placecats.com/700/700" />
+                <img
+                  className="img-fluid"
+                  src="https://placecats.com/700/700"
+                />
                 <Carousel.Caption>
                   <h3>Third slide label</h3>
                   <p>
