@@ -1,7 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import FunctionalComponent from './components/FunctionalComponent'
+import ClassComponent from './components/ClassComponent'
 
 interface MovieObject {
   Poster: string
@@ -15,6 +18,10 @@ function App() {
   // dal valore iniziale di "null" che il TIPO di movieData sarà anch'esso "null"
   // dobbiamo far capire a TS che nonostante il valore iniziale di null, il TIPO della variable movieData non sarà sempre e solo null!
 
+  useEffect(() => {
+    console.log('componente montato!')
+  }, [])
+
   return (
     <>
       <div>
@@ -26,6 +33,12 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <ClassComponent mainTitle="Cattosello" />
+      <FunctionalComponent
+        imgSource="https://placecats.com/400/400"
+        title="Card con gatto!"
+      />
+      <FunctionalComponent imgSource="https://placedog.net/200" />
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -36,6 +49,8 @@ function App() {
           SETTA MOVIEDATA
         </button>
         {movieData && <p>{movieData.Title}</p>}
+        {/* metodo alternativo */}
+        {/* <p>{movieData?.Title}</p> */}
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
